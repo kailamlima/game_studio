@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <cmath>
 #include <SFML/Graphics.hpp>
 #include <string>
 
@@ -18,16 +19,16 @@ public:
 
     void Teclado(float &dT){
         float dist = this->vel * dT;
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && (this->Y - 5 >0)){
             movimento(0,-dist);
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) && (this->Y + (this->R*2) + 5 < 600)){
             movimento(0,dist);
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && (this->X - 5 > 0)){
             movimento(-dist,0);
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && (this->X + (this->R*2) +5 < 800)){
             movimento(dist,0);
         }
     }
